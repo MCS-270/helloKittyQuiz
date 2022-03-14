@@ -10,12 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 
 
-const val EXTRA_ANSWER_SHOWN = "com.bignerdranch.android.geoquiz.answer_shown"
+const val EXTRA_ANSWER_SHOWN = "com.example.hellokittyquiz.answer_shown"
 private lateinit var answerTextView: TextView
 private lateinit var showAnswerButton: Button
 
-private const val EXTRA_ANSWER_IS_TRUE =
-    "com.bignerdranch.android.geoquiz.answer_is_true"
+private const val EXTRA_ANSWER_IS_TRUE = "com.example.hellokittyquiz.answer_is_true"
 
 
 class  CheatActivity : AppCompatActivity() {
@@ -33,6 +32,7 @@ class  CheatActivity : AppCompatActivity() {
         answerTextView = findViewById(R.id.answer_textview)
         showAnswerButton = findViewById(R.id.show_answer_button)
         showAnswerButton.setOnClickListener {
+            quizViewModel.isCheater = true
             val answerText = when {
                 answerIsTrue -> R.string.true_button
                 else -> R.string.false_button
@@ -43,7 +43,7 @@ class  CheatActivity : AppCompatActivity() {
     }
 
     private fun setAnswerShownResult(isAnswerShown: Boolean) {
-        quizViewModel.isCheater = true
+        //quizViewModel.isCheater = true
         val data = Intent().apply {
             putExtra(EXTRA_ANSWER_SHOWN, isAnswerShown)
         }
