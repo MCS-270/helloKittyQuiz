@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     private lateinit var trueButton: Button
@@ -48,30 +49,25 @@ class MainActivity : AppCompatActivity() {
             trueButton.isEnabled = false
             falseButton.isEnabled = false
 
-            val messageResId = when {
-                quizViewModel.isCheater -> R.string.judgment_toast
-                userAnswer == correctAnswer -> R.string.correct_toast
-                else -> R.string.incorrect_toast
-            }
 
-            if (quizViewModel.isCheater){
-                quizViewModel.isCheater = false
-                var judgement = Toast.makeText(this, messageResId, Toast.LENGTH_LONG)
-                judgement.setGravity(Gravity.BOTTOM,0,0)
-                judgement.show()
-            }
-
-            if (userAnswer == correctAnswer){
-                correct += 1
-                var toast = Toast.makeText(this, R.string.correct_toast, Toast.LENGTH_LONG)
-                toast.setGravity(Gravity.TOP,0,0)
-                toast.show()
-            }
-
-            else{
-                var toast = Toast.makeText(this, R.string.incorrect_toast, Toast.LENGTH_LONG)
-                toast.setGravity(Gravity.TOP,0,0)
-                toast.show()
+            when {
+                quizViewModel.isCheater -> {
+                    quizViewModel.isCheater = false
+                    var judgement = Toast.makeText(this, R.string.judgment_toast, Toast.LENGTH_LONG)
+                    judgement.setGravity(Gravity.BOTTOM,0,0)
+                    judgement.show()
+                }
+                userAnswer == correctAnswer -> {
+                    correct += 1
+                    var toast = Toast.makeText(this, R.string.correct_toast, Toast.LENGTH_LONG)
+                    toast.setGravity(Gravity.TOP,0,0)
+                    toast.show()
+                }
+                else -> {
+                    var toast = Toast.makeText(this, R.string.incorrect_toast, Toast.LENGTH_LONG)
+                    toast.setGravity(Gravity.TOP,0,0)
+                    toast.show()
+                }
             }
         }
 
@@ -103,7 +99,7 @@ class MainActivity : AppCompatActivity() {
             val answerIsTrue = quizViewModel.currentQuestionAnswer
             val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
             startActivity(intent)
-
+            quizViewModel.isCheater = true
         }
 
         // Updates question when button clicked
@@ -135,16 +131,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int,
-                                  resultCode: Int,
-                                  data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != Activity.RESULT_OK) {
             return
         }
         if (requestCode == REQUEST_CODE_CHEAT) {
-            quizViewModel.isCheater =
-                data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
+            quizViewModel.isCheater = data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
         }
     }
 
