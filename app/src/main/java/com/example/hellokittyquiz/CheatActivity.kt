@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 const val EXTRA_ANSWER_SHOWN = "com.example.hellokittyquiz.answer_shown"
 private lateinit var answerTextView: TextView
 private lateinit var showAnswerButton: Button
-
+// Hi, I'm Elliot.
 private const val EXTRA_ANSWER_IS_TRUE = "com.example.hellokittyquiz.answer_is_true"
 
 
