@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 
+// Edited by Santiago
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
