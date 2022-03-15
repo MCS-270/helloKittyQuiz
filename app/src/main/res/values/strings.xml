@@ -15,5 +15,6 @@
     <string name="show_answer">Show me the answer!</string>
     <string name="cheat_button">Cheat!!!!</string>
     <string name="judgment_toast">Cheating is wrong.</string>
+    <string name="batman">batman</string>
     <string name="santiago">Rebasing example</string>
 </resources>
