@@ -5,6 +5,11 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
+    <ImageView
+        android:layout_width="1in"
+        android:layout_height="1in"
+        android:src="@drawable/hellokitty">
+    </ImageView>
     <TextView
         android:id="@+id/question_text_view"
         android:layout_width="wrap_content"
