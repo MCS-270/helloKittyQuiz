@@ -8,6 +8,7 @@ import android.view.Gravity
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var nextButton: ImageButton
     private lateinit var previousButton: ImageButton
     private lateinit var questionTextView: TextView
+    private lateinit var imageImageView: ImageView
 
     private val quizViewModel: QuizViewModel by lazy {
         ViewModelProviders.of(this).get(QuizViewModel::class.java)
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         previousButton = findViewById(R.id.previous_button)
         questionTextView = findViewById(R.id.question_text_view)
         cheatButton = findViewById(R.id.cheat_button)
+        imageImageView = findViewById(R.id.image_image_view)
 
         fun checkAnswer(userAnswer: Boolean){
             val correctAnswer = quizViewModel.currentQuestionAnswer
@@ -110,6 +113,8 @@ class MainActivity : AppCompatActivity() {
 
             val questionTextResId = quizViewModel.currentQuestionText
             questionTextView.setText(questionTextResId)
+            val questionImageResId = quizViewModel.currentImage
+            imageImageView.setImageResource(questionImageResId)
         }
 
         updateQuestions()
