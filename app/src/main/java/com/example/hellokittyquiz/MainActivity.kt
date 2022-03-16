@@ -49,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         questionTextView = findViewById(R.id.question_text_view)
         cheatButton = findViewById(R.id.cheat_button)
         imageImageView = findViewById(R.id.image_image_view)
+        showScore = findViewById(R.id.show_score_button)
         showScore.isEnabled = false
 
         fun checkAnswer(userAnswer: Boolean){
@@ -116,8 +117,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         showScore.setOnClickListener {
-            val IsTrue = quizViewModel.kittyText
-            val show_intent = EndPageActivity.newIntent2(this@MainActivity, IsTrue)
+            //val IsTrue = quizViewModel.kittyText
+            val show_intent = Intent(this, EndPageActivity::class.java)
             startActivity(show_intent)
         }
 

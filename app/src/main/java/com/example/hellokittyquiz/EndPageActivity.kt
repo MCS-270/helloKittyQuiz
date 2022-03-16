@@ -28,7 +28,9 @@ class EndPageActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_endpage)
-
+        val actionBar = supportActionBar
+        actionBar!!.title = "Score"
+        actionBar.setDisplayHomeAsUpEnabled(true)
         showfinishbutton = findViewById(R.id.show_finish_button)
         showFinishText = findViewById(R.id.show_finish_text)
         scoreTextView = findViewById(R.id.score_textview)
@@ -36,32 +38,16 @@ class EndPageActivity : AppCompatActivity()  {
         showfinishbutton.setOnClickListener {
             val scoreImage = quizViewModel.kittyImage
             showImage.setImageResource(scoreImage)
-//            val questionImageResId = quizViewModel.currentImage
-//            imageImageView.setImageResource(questionImageResId)
         }
 
-        fun newIntent2(packageContext: Context, IsTrue: Int): Intent {
-            val message = quizViewModel.kittyText
-            return Intent(this, EndPageActivity::class.java).apply {
-                putExtra(EXTRA_MESSAGE, message)
-            }
-        }
+//        fun newIntent2(packageContext: Context, IsTrue: Int): Intent {
+//            val message = quizViewModel.kittyText
+//            return Intent(this, EndPageActivity::class.java).apply {
+//                putExtra(EXTRA_MESSAGE, message)
+//            }
+//        }
 
     }
 
 }
-//        private fun setAnswerShownResult(isAnswerShown: Boolean) {
-//            //quizViewModel.isCheater = true
-//            val data = Intent().apply {
-//                putExtra(EXTRA_ANSWER_SHOWN, isAnswerShown)
-//            }
-//            setResult(Activity.RESULT_OK, data)
-//        }
-//
-//        companion object {
-//            fun newIntent(packageContext: Context, answerIsTrue: Boolean): Intent {
-//                return Intent(packageContext, EndPageActivity::class.java).apply {
-//                    putExtra(EXTRA_ANSWER_IS_TRUE, answerIsTrue)
-//                }
-//            }
-//        }
+
