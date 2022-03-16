@@ -14,7 +14,7 @@ class QuizViewModel: ViewModel() {
     var imageCurrentIndex = 0
     var isCheater = false
     //load questions up by creating a list of Question objects
-
+    var correct = 0
     val QuestionBank = listOf(
         Questions(R.drawable.deardaniel, R.string.kitty1, true),
         Questions(R.drawable.hellokittycat, R.string.kitty2, false),
@@ -36,8 +36,8 @@ class QuizViewModel: ViewModel() {
     val currentQuestionAnswer: Boolean get() = QuestionBank[currentIndex].answer
     val currentQuestionText: Int get() = QuestionBank[currentIndex].textResID
     val currentImage: Int get() = QuestionBank[currentIndex].imageResID
-    val kittyImage: Int get() = ScoreBank[imageCurrentIndex].imageResID
-    val kittyText: Int get() = ScoreBank[imageCurrentIndex].textResID
+    val kittyImage: Int get() = ScoreBank[correct].imageResID
+    val kittyText: Int get() = ScoreBank[correct].textResID
 
 
     fun moveToNext() {
