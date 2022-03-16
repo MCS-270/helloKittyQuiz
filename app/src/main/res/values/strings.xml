@@ -15,6 +15,11 @@
     <string name="show_answer">Show me the answer!</string>
     <string name="cheat_button">Cheat!!!!</string>
     <string name="judgment_toast">Cheating is wrong.</string>
-    <string name="batman">batman</string>
-    <string name="santiago">Rebasing example</string>
+    <string name="score_button">How did I do, Hello Kitty</string>
+
+
+    <string name="finish_text">Hi, I am Hello Kitty. Thanks for finishing my quiz!</string>
+    <string name="finish_button">Let us see how you did</string>
+
+
 </resources>
