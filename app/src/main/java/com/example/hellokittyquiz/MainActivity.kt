@@ -24,12 +24,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var previousButton: ImageButton
     private lateinit var questionTextView: TextView
     private lateinit var imageImageView: ImageView
+    private lateinit var showScore: Button
+
 
     private val quizViewModel: QuizViewModel by lazy {
         ViewModelProviders.of(this).get(QuizViewModel::class.java)
     }
 
-    private var isAnswered = BooleanArray(4) { true }
+    private var isAnswered = BooleanArray(5) { true }
     private val TAG = "MainActivity"
     private val REQUEST_CODE_CHEAT = 0
 
@@ -39,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         var correct = 0
+        var allAnswered = 0
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
         nextButton = findViewById(R.id.next_button)
@@ -46,13 +49,18 @@ class MainActivity : AppCompatActivity() {
         questionTextView = findViewById(R.id.question_text_view)
         cheatButton = findViewById(R.id.cheat_button)
         imageImageView = findViewById(R.id.image_image_view)
+        showScore.isEnabled = false
 
         fun checkAnswer(userAnswer: Boolean){
             val correctAnswer = quizViewModel.currentQuestionAnswer
+            allAnswered += 1
             isAnswered[quizViewModel.currentIndex] = false
             trueButton.isEnabled = false
             falseButton.isEnabled = false
 
+            if (allAnswered == 5){
+                showScore.isEnabled = true
+            }
 
             when {
                 quizViewModel.isCheater -> {
@@ -63,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 userAnswer == correctAnswer -> {
                     correct += 1
+                    quizViewModel.imageCurrentIndex += 1
                     var toast = Toast.makeText(this, R.string.correct_toast, Toast.LENGTH_LONG)
                     toast.setGravity(Gravity.TOP,0,0)
                     toast.show()
@@ -104,6 +113,12 @@ class MainActivity : AppCompatActivity() {
             val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
             startActivity(intent)
             quizViewModel.isCheater = true
+        }
+
+        showScore.setOnClickListener {
+            val IsTrue = quizViewModel.kittyText
+            val show_intent = EndPageActivity.newIntent2(this@MainActivity, IsTrue)
+            startActivity(show_intent)
         }
 
         // Updates question when button clicked

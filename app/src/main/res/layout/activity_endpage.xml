@@ -7,7 +7,14 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".EndPageActivity">
+    <ImageView
+        android:id="@+id/score_hello_kitty_image"
+        android:layout_width="1in"
+        android:layout_height="1in"
+        android:src="@drawable/hihellokitty">
+    </ImageView>
     <TextView
+        android:id="@+id/show_finish_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/finish_text"
