@@ -6,6 +6,13 @@
     <string name="kitty2">Hello Kitty has a pet cat called Gross Kitty </string>
     <string name="kitty3">Hello Kitty measurements are in pears</string>
     <string name="kitty4">Hello Kitty did not appear on TV until the late 80s</string>
+    <string name="louis1">Does Louis love Hello Kitty</string>
+    <string name="endkitty1">Hello Kitty spits on you...</string>
+    <string name="endkitty2">Hello Kitty thinks you are cringe</string>
+    <string name="endkitty3">Hello Kitty doesnt talk to you anymore</string>
+    <string name="endkitty4">CLICK Hello Kitty took a picture of your clown face</string>
+    <string name="endkitty5">Hello Kitty respects your attempt</string>
+    <string name="endkitty6">You are Hello Kittys new boyfriend</string>
     <string name="correct_toast">Correct!</string>
     <string name="incorrect_toast">Incorrect!</string>
     <string name="next_button">Next</string>
@@ -18,10 +25,5 @@
     <string name="score_button">How did I do, Hello Kitty</string>
     <string name="finish_text">Hi, I am Hello Kitty. Thanks for finishing my quiz!</string>
     <string name="finish_button">Let us see how you did</string>
-
-
-
-
-
 
 </resources>
