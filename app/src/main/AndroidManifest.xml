@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HelloKittyQuiz">
         <activity android:name=".CheatActivity" />
+        <activity android:name=".EndPageActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

@@ -17,6 +17,7 @@ const val EXTRA_MESSAGE = "com.example.helloKittyQuiz.Message"
 
 class EndPageActivity : AppCompatActivity()  {
 
+
     private lateinit var showfinishbutton: Button
     private lateinit var showFinishText: TextView
     private lateinit var scoreTextView: TextView
@@ -35,9 +36,13 @@ class EndPageActivity : AppCompatActivity()  {
         showFinishText = findViewById(R.id.show_finish_text)
         scoreTextView = findViewById(R.id.score_textview)
         showImage = findViewById(R.id.score_hello_kitty_image)
+
+
         showfinishbutton.setOnClickListener {
             val scoreImage = quizViewModel.kittyImage
             showImage.setImageResource(scoreImage)
+            val scoreText = quizViewModel.kittyText
+            scoreTextView.setText(scoreText)
         }
 
 //        fun newIntent2(packageContext: Context, IsTrue: Int): Intent {

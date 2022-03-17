@@ -7,6 +7,12 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".CheatActivity">
+    <ImageView
+        android:id="@+id/hello_kitty_cheat_image"
+        android:layout_width="1in"
+        android:layout_height="1in"
+        android:src="@drawable/hihellokitty">
+    </ImageView>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "onCreate(Bundle?) called")
         setContentView(R.layout.activity_main)
 
-        var correct = 0
+
         var allAnswered = 0
         trueButton = findViewById(R.id.true_button)
         falseButton = findViewById(R.id.false_button)
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                     judgement.show()
                 }
                 userAnswer == correctAnswer -> {
-                    correct += 1
+                    quizViewModel.correct += 1
                     quizViewModel.imageCurrentIndex += 1
                     var toast = Toast.makeText(this, R.string.correct_toast, Toast.LENGTH_LONG)
                     toast.setGravity(Gravity.TOP,0,0)
@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun calcPercentage(){
-            var percentage = (correct.toDouble()/quizViewModel.QuestionBank.size)*100
+            var percentage = (quizViewModel.correct.toDouble()/quizViewModel.QuestionBank.size)*100
             var toast = Toast.makeText(this, "$percentage%", Toast.LENGTH_LONG)
             toast.setGravity(Gravity.CENTER,0,0)
             toast.show()
