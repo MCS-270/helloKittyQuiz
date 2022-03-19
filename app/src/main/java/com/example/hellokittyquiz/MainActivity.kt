@@ -87,9 +87,9 @@ class MainActivity : AppCompatActivity() {
 
         fun calcPercentage(){
             var percentage = (quizViewModel.correct.toDouble()/quizViewModel.QuestionBank.size)*100
-            var toast = Toast.makeText(this, "$percentage%", Toast.LENGTH_LONG)
-            toast.setGravity(Gravity.CENTER,0,0)
-            toast.show()
+            //var toast = Toast.makeText(this, "$percentage%", Toast.LENGTH_LONG)
+            //toast.setGravity(Gravity.CENTER,0,0)
+            //toast.show()
         }
 
         trueButton.setOnClickListener {
@@ -118,7 +118,11 @@ class MainActivity : AppCompatActivity() {
 
         showScore.setOnClickListener {
             //val IsTrue = quizViewModel.kittyText
+            val scoreImage = quizViewModel.kittyImage
+            val scoreText = quizViewModel.kittyText
             val show_intent = Intent(this, EndPageActivity::class.java)
+            show_intent.putExtra("Score Image", scoreImage)
+            show_intent.putExtra("Score Text", scoreText)
             startActivity(show_intent)
         }
 
