@@ -31,7 +31,7 @@ class EndPageActivity : AppCompatActivity()  {
         setContentView(R.layout.activity_endpage)
         val actionBar = supportActionBar
         actionBar!!.title = "Score"
-        actionBar.setDisplayHomeAsUpEnabled(true)
+        //actionBar.setDisplayHomeAsUpEnabled(true)
         showfinishbutton = findViewById(R.id.show_finish_button)
         showFinishText = findViewById(R.id.show_finish_text)
         scoreTextView = findViewById(R.id.score_textview)
@@ -39,20 +39,12 @@ class EndPageActivity : AppCompatActivity()  {
 
 
         showfinishbutton.setOnClickListener {
-            val scoreImage = quizViewModel.kittyImage
+            val scoreImage = intent.getIntExtra("Score Image", quizViewModel.kittyImage)
             showImage.setImageResource(scoreImage)
-            val scoreText = quizViewModel.kittyText
+            val scoreText = intent.getIntExtra("Score Text", quizViewModel.kittyText)
             scoreTextView.setText(scoreText)
         }
-
-//        fun newIntent2(packageContext: Context, IsTrue: Int): Intent {
-//            val message = quizViewModel.kittyText
-//            return Intent(this, EndPageActivity::class.java).apply {
-//                putExtra(EXTRA_MESSAGE, message)
-//            }
-//        }
 
     }
 
 }
-

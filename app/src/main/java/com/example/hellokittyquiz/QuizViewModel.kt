@@ -14,7 +14,7 @@ class QuizViewModel: ViewModel() {
     var imageCurrentIndex = 0
     var isCheater = false
     //load questions up by creating a list of Question objects
-    var correct = 0
+    var correct = 0 //number of correct answers
     val QuestionBank = listOf(
         Questions(R.drawable.deardaniel, R.string.kitty1, true),
         Questions(R.drawable.hellokittycat, R.string.kitty2, false),
@@ -26,8 +26,8 @@ class QuizViewModel: ViewModel() {
     val ScoreBank = listOf(
         Scores(R.drawable.creepyhellokitty, R.string.endkitty1),
         Scores(R.drawable.badhellokitty, R.string.endkitty2),
-        Scores(R.drawable.camerakitty, R.string.endkitty3),
-        Scores(R.drawable.ballonhellokitty, R.string.endkitty4),
+        Scores(R.drawable.ballonhellokitty, R.string.endkitty3),
+        Scores(R.drawable.camerakitty, R.string.endkitty4),
         Scores(R.drawable.icecreamkitty, R.string.endkitty5),
         Scores(R.drawable.lovehellokitty, R.string.endkitty6)
     )
